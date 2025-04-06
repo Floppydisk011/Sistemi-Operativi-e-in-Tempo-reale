@@ -1,19 +1,13 @@
-CC = gcc
-CFLAGS = -Wall
-
 all: server supplier center
 
-server: server.o list.o
-	$(CC) $(CFLAGS) -o server server.o list.o
+server: server.c list.c
+	gcc -Wall -o server server.c list.c
 
-supplier: supplier.o list.o
-	$(CC) $(CFLAGS) -o supplier supplier.o list.o
+supplier: supplier.c list.c
+	gcc -Wall -o supplier supplier.c list.c
 
-center: center.o list.o
-	$(CC) $(CFLAGS) -o center center.o list.o
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $<
+center: center.c list.c
+	gcc -Wall -o center center.c list.c
 
 clean:
-	rm -f *.o server supplier center *~
+	rm -f server supplier center *~
